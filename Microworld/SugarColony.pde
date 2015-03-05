@@ -1,10 +1,10 @@
 import java.util.Iterator;
-
+import teilchen.force.Spring;
 class SugarColony implements CreatureBehavior{
   
   CollisionManager _collision;
   Physics _physics;
-  
+    
   int initG = 2;
   int initS = 4;
   int radius = 0;
@@ -72,7 +72,22 @@ class SugarColony implements CreatureBehavior{
     for(int i=0;i<smal.size();i++){
       Smaller localref2 = smal.get(i);
       localref2.draw_shape();
-    
+      
+      if(localref2.ismarried == false){
+        for(int j=0;j<smal.size();j++){
+          Smaller localref2_inner = smal.get(j);
+          if(localref2_inner.ismarried == false && localref2.equals(localref2_inner) == false) {
+            boolean isInside = localref2.inside((int)localref2_inner.position().x, (int)localref2_inner.position().y);
+            if(isInside == true) {
+                Spring _spring = physics.makeSpring(localref2_inner, localref2);
+                _spring.restlength(3*radius);
+                localref2_inner.ismarried = true;
+                localref2.ismarried = true;
+                break;
+            }
+          }
+        }  
+      } 
     }
     if(frameCount%90 ==0){
          int a=(int)random(width);
