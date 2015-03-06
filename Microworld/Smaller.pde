@@ -9,7 +9,7 @@ class Smaller extends Creature {
     super(x, y, r);
     ellipseMode(RADIUS);
   }  
-  
+
   public void draw_shape(){
     noFill();
     stroke(255,255,255);

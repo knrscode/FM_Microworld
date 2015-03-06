@@ -62,13 +62,17 @@ class SugarColony implements CreatureBehavior{
          _physics.remove(gliIt.myThought);
          _physics.remove(gliIt);
          it.remove();
-       } 
+       } else {
+         for(int i=0;i<smal.size();i++){
+           if( gliIt.inside((int)smal.get(i).position().x,(int)smal.get(i).position().y,smal.get(i).radius())==true){
+             gliIt.iseaten=true;
+           }
+         } 
+         gliIt.draw_shape(); 
+         
+       }
     }
     
-    for(int i = 0; i < glu.size(); i++) {
-      Glucose localRef = glu.get(i);
-      localRef.draw_shape();
-    }
     for(int i=0;i<smal.size();i++){
       Smaller localref2 = smal.get(i);
       localref2.draw_shape();
