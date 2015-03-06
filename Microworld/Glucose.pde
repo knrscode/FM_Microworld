@@ -13,8 +13,8 @@ boolean isdead=false;
   public void draw_shape(){
     timer++;
     fill(255,0,0,80);
-    ellipse(position().x, position().y, radius(), radius());  
-   if(timer>=180) {
+   ellipse(position().x, position().y, radius(), radius());  
+    if(timer>=180) {
       isdead=true;
     }
   

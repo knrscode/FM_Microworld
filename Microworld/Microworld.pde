@@ -31,13 +31,13 @@ void setup(){
 }
 
 void draw(){
+  background(23, 68, 250);
   
   collision.createCollisionResolvers();
   collision.loop(1.0 / frameRate);
   
-  background(23, 68, 250);
-  sugar.drawSugar();
   physics.step(1.0 / frameRate); 
+  sugar.drawSugar();
   
   collision.removeCollisionResolver();
     

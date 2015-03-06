@@ -6,7 +6,7 @@ class SugarColony implements CreatureBehavior{
   Physics _physics;
     
   int initG = 2;
-  int initS = 4;
+  int initS = 10;
   int radius = 0;
   
   ArrayList<Glucose> glu=new ArrayList<Glucose>();
@@ -72,23 +72,29 @@ class SugarColony implements CreatureBehavior{
     for(int i=0;i<smal.size();i++){
       Smaller localref2 = smal.get(i);
       localref2.draw_shape();
-      
-      if(localref2.ismarried == false){
-        for(int j=0;j<smal.size();j++){
+      if(localref2.ismarried == false) {
+        for(int j=0;j<smal.size();j++) {
           Smaller localref2_inner = smal.get(j);
           if(localref2_inner.ismarried == false && localref2.equals(localref2_inner) == false) {
             boolean isInside = localref2.inside((int)localref2_inner.position().x, (int)localref2_inner.position().y);
             if(isInside == true) {
                 Spring _spring = physics.makeSpring(localref2_inner, localref2);
                 _spring.restlength(3*radius);
-                localref2_inner.ismarried = true;
-                localref2.ismarried = true;
+                localref2.getMarried(localref2_inner);
+                localref2_inner.getMarried(localref2);
                 break;
-            }
+            } 
           }
-        }  
-      } 
-    }
+        }
+        
+      } else {
+        Smaller myPartner = localref2.getMyPartner();
+        stroke(255,0,0);
+        line(myPartner.position().x, myPartner.position().y, localref2.position().x, localref2.position().y);
+        noStroke();
+      }
+    } // end of iterating over smal
+    
     if(frameCount%90 ==0){
          int a=(int)random(width);
          int b=(int)random(height);
