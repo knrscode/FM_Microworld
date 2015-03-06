@@ -13,8 +13,10 @@ class Smaller extends Creature {
   public void draw_shape(){
     noFill();
     stroke(255,255,255);
-    ellipse(position().x, position().y, radius(), radius()); 
-    ellipse(position().x, position().y, radius()/2, radius()/2); 
+    //ellipse(position().x, position().y, radius(), radius()); 
+    //ellipse(position().x, position().y, radius()/2, radius()/2); 
+    
+    
   }
 
   public boolean inside(int mx, int my) {    

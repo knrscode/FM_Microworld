@@ -6,7 +6,7 @@ public class FoodThought extends Attractor{
     public FoodThought() {
        super();
     }
-
+   
     public void apply(float theDeltaTime, Physics theParticleSystem) {
         if (_myStrength != 0) {
             for (final Particle myParticle : theParticleSystem.particles()) {
