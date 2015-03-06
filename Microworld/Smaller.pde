@@ -2,11 +2,13 @@
 class Smaller extends Creature {
   // declared an object reference
   private Smaller partner;
+  float s;
   
   boolean ismarried=false;
   
    public Smaller(int x,int y, int r) {
     super(x, y, r);
+    s = (float)Math.sqrt(2)*r;
     ellipseMode(RADIUS);
   }  
 
@@ -16,6 +18,30 @@ class Smaller extends Creature {
     //ellipse(position().x, position().y, radius(), radius()); 
     //ellipse(position().x, position().y, radius()/2, radius()/2); 
     
+    pushMatrix();
+    translate(position().x, position().y);
+    stroke(0,255,0);
+    beginShape();
+    vertex(-s/2, -s/2);
+    vertex(s/2, -s/2);
+    vertex(s/2, s/2);
+    vertex(-s/2, s/2);
+    endShape(CLOSE);
+    rotate(radians(60));
+    beginShape();
+    vertex(-s/2, -s/2);
+    vertex(s/2, -s/2);
+    vertex(s/2, s/2);
+    vertex(-s/2, s/2);
+    endShape(CLOSE);
+    rotate(radians(60));
+    beginShape();
+    vertex(-s/2, -s/2);
+    vertex(s/2, -s/2);
+    vertex(s/2, s/2);
+    vertex(-s/2, s/2);
+    endShape(CLOSE);
+    popMatrix();
     
   }
 

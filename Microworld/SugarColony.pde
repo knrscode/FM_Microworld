@@ -42,7 +42,7 @@ class SugarColony implements CreatureBehavior{
         _foodthought.position().set(a, b);
         _physics.add(_foodthought);
     
-        Glucose _glucose=new Glucose(a,b,radius/3, _foodthought);
+        Glucose _glucose=new Glucose(a,b,radius/2, _foodthought);
         add(_glucose);
         glu.add(_glucose);
     }
@@ -94,7 +94,9 @@ class SugarColony implements CreatureBehavior{
       } else {
         Smaller myPartner = localref2.getMyPartner();
         stroke(255,0,0);
+        strokeWeight(3);
         line(myPartner.position().x, myPartner.position().y, localref2.position().x, localref2.position().y);
+        strokeWeight(1);
         noStroke();
       }
     } // end of iterating over smal
@@ -108,7 +110,7 @@ class SugarColony implements CreatureBehavior{
         _foodthought.position().set(a, b);
         _physics.add(_foodthought);
         
-        Glucose _glucose=new Glucose(a,b,radius/3, _foodthought);
+        Glucose _glucose=new Glucose(a,b,radius/2, _foodthought);
         add(_glucose);
         glu.add(_glucose);
     

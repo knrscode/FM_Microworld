@@ -1,5 +1,6 @@
 class Glucose extends Creature{
-int timer = 0;  
+int timer = 0;
+int a = 90;
 boolean isdead=false;
 boolean iseaten=false;
   FoodThought myThought;
@@ -12,10 +13,13 @@ boolean iseaten=false;
   
   public void draw_shape(){
     timer++;
+    if(timer>150) {
+      a-= 3; 
+    }
     if(iseaten) {
-      fill(255,255,0,80);
+      fill(255,255,0,a);
     } else {
-      fill(255,0,0,80);
+      fill(255,0,0,a);
     }
     noStroke();
     ellipse(position().x, position().y, radius(), radius());  

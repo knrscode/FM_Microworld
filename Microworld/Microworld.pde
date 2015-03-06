@@ -11,7 +11,7 @@ CollisionManager collision;
 int r = 20;
 
 void setup(){
-  size(650,650);
+  size(650,650,OPENGL);
   background(23, 68, 250);
   frameRate(30);
   
